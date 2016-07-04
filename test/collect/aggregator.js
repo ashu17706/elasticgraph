@@ -7,7 +7,7 @@ it('Request should be triggered after the timeout in config.timeouts', (done) =>
       var finalTime = new Date().getTime() - startTime;
 
       expect(finalTime).to.be.above(config.timeouts.get);
-    }).should.notify(done);
+    }).catch().should.notify(done);
 });
 
 // it('Request shold be triggered after collecting config.batch_size.{function name} requests', (done) => {
