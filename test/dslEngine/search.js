@@ -23,14 +23,14 @@ describe('search', ()=> {
     }).should.notify(done)
   })
 
-  it('search first test  where {_id: 1} as test should return only first result', (done) => {
-    // let ctx = {"name" : "Ashutosh Tripathi"}
-    const result = es.dsl.execute(['search first test where {_id: 1} as test'], {})
-
-    result.should.be.fulfilled.then((res) => {
-      expect(res)
-        .to.be.an('object')
-        .and.to.contain.all.keys(["_type", "_index", "_score", "_id", "_source"])
-    }).should.notify(done)
-  })
+  // it('search first test  where {_id: 1} as test should return only first result', (done) => {
+  //   // let ctx = {"name" : "Ashutosh Tripathi"}
+  //   const result = es.dsl.execute(['search first test where {_id: 1} as test'], {})
+  //
+  //   result.should.be.fulfilled.then((res) => {
+  //     expect(res)
+  //       .to.be.an('object')
+  //       .and.to.contain.all.keys(["_type", "_index", "_score", "_id", "_source"])
+  //   }).should.notify(done)
+  // })
 })
