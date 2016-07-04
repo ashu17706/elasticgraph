@@ -1,8 +1,8 @@
 'use strict';
 
 describe('search', ()=> {
-  it('search test where {_id: 3} as test should return no hits', (done)=> {
-    const result = es.dsl.execute(['search test where {_id: 3} as test'], {})
+  it('search test where {_id: 200} as test should return no hits', (done)=> {
+    const result = es.dsl.execute(['search test where {_id: 200} as test'], {})
 
     result.should.be.fulfilled.then((res) => {
       expect(res)
@@ -13,7 +13,7 @@ describe('search', ()=> {
   })
 
   it('search test where {_id: 1} as test should return 1 hits', (done) => {
-    const result = es.dsl.execute(['search test where {_id: 1}. Create if not exists'], {})
+    const result = es.dsl.execute(['search test where {_id: 150}. Create if not exists'], {})
 
     result.should.be.fulfilled.then((res) => {
       expect(res)
