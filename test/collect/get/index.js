@@ -4,5 +4,5 @@ it('Get response', function(done){
     expect(res)
     .to.be.an('object')
     .and.to.contain.all.keys(['_index', '_type', '_id', '_version', 'found', '_source'])
-  })catch().should.notify(done);
+  }).catch().should.notify(done);
 });
