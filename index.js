@@ -1,7 +1,7 @@
 'use strict'
-const debug = require('debug')('EpicSearch/Index')
 const elasticsearch = require('elasticsearch')
 const _ = require('lodash')
+const debug = require('debug')('epicsearch/index')
 
 const collectFunctions = {
     get: './lib/collect/get/index',
