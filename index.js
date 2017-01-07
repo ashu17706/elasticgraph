@@ -37,15 +37,24 @@ const EpicSearch = function(configFolderPath) {
 
 const addDeepFeature = (es) => {
   es.deep = {}
-  _.keys(deepFunctions)
-  .forEach((fnName) => {
+  _.keys(deepFunctions).forEach((fnName) => {
+
     const DeepFunction = require('./lib/deep/' + deepFunctions[fnName])
     const deepFunction = new DeepFunction(es)
+
     es.deep[fnName] = function () {
-      return deepFunction.execute.apply(deepFunction, arguments)
-      .catch((err) => {
-        throw err + err.stack
-      })
+      const params = arguments[0]
+      const cache = arguments[1]
+      if (cache) {
+        const cachedPromise = cache.get(fnName + JSON.stringify(params) + 'promise')
+        if (cachedPromise) {
+          return cachedPromise
+        }
+      }
+
+      const returnPromise = deepFunction.execute.apply(deepFunction, arguments)
+      cache.set(fnName + JSON.stringify(params) + 'promise', returnPromise)
+      return returnPromise
     }
   })
 }
