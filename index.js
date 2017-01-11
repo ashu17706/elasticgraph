@@ -44,13 +44,15 @@ const addDeepFeature = (es) => {
 
     es.deep[fnName] = function () {
       const params = arguments[0]
-      const cache = arguments[1]
+      let cache = arguments[1]
       if (cache) {
         const cachedPromise = cache.get(fnName + JSON.stringify(params) + 'promise')
         if (cachedPromise) {
           return cachedPromise
         }
       }
+
+      cache = new es.Cache()
 
       const returnPromise = deepFunction.execute.apply(deepFunction, arguments)
       cache.set(fnName + JSON.stringify(params) + 'promise', returnPromise)
