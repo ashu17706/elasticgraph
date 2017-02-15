@@ -50,7 +50,10 @@ const addDeepFeature = (es) => {
         if (cachedPromise) {
           return cachedPromise
         }
-      }
+      } else {
+				cache = new es.Cache(es.config)
+				arguments[1] = cache
+			}
 
       cache = new es.Cache()
 
