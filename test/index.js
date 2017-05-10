@@ -1,7 +1,7 @@
 'use strict';
 require('./common.js');
 
-describe('testing epicsearch', function() {
+describe('testing elasticgraph', function() {
 
   this.timeout(15000);
 

@@ -1,7 +1,7 @@
 'use strict'
 const elasticsearch = require('elasticsearch')
 const _ = require('lodash')
-const debug = require('debug')('epicsearch/index')
+const debug = require('debug')('elasticgraph/index')
 
 const collectFunctions = {
     get: './lib/collect/get/index',
@@ -21,7 +21,7 @@ const deepFunctions = {
     update: 'update'
   }
 
-const EpicSearch = function(configFolderPath) {
+const ElasticGraph = function(configFolderPath) {
 
   const configLoader = require('./lib/configLoader')
   const config = configLoader(configFolderPath)
@@ -90,6 +90,6 @@ const addCollectFeature = (es) => {
 }
 
 module.exports = function(configFolderPath) {
-  return new EpicSearch(configFolderPath).es
+  return new ElasticGraph(configFolderPath).es
 }
 

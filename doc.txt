@@ -1,4 +1,4 @@
-var es = new epicsearch('pathToConfig')
+var es = new elasticgraph('pathToConfig')
 
 >>baseConfig
 [clientParams]

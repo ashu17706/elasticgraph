@@ -37,8 +37,8 @@ Test case coverage being done
 'use strict'
 const _ = require('lodash')
 
-var EpicSearch = require('./index')
-var es = new EpicSearch(process.argv[2])
+var ElasticGraph = require('./index')
+var es = new ElasticGraph(process.argv[2])
 
 //'search speakers where person.name = *text'
 //const assignments = ['x is 2', 'x is 4 if *x is 2 ? Else 1', 'x is 1 if *x is 42 ? Else is 2']
