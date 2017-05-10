@@ -1,7 +1,7 @@
 {
-  "name": "epicsearch",
-  "version": "1.4.6",
-  "description": "Elasticsearch in Nodejs made better: Query batching for heavy load scenarios and some utility functions",
+  "name": "elasticgraph",
+  "version": "2.0.0",
+  "description": "Make more out of Elasticsearch",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -33,7 +33,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com/mastersilv3r/epicsearch.git"
+    "url": "git@github.com/mindgreppers/elasticgraph.git"
   },
   "keywords": [
     "elasticsearch",
@@ -42,9 +42,9 @@
     "utilities"
   ],
   "author": "Silv3r",
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/mastersilv3r/epicsearch/issues"
+    "url": "https://github.com/mindgreppers/elasticgraph/issues"
   },
-  "homepage": "https://github.com/mastersilv3r/epicsearch"
+  "homepage": "https://github.com/mindgreppers/elasticgraph"
 }
