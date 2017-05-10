@@ -3,6 +3,7 @@ ElasticGraph
 
 ElasticGraph extends ElasticSearch to provide Graph search. Graph analytics, relationship management, joins, multi lingual storage, declarative data dependency management, English like Elastic SQL (Esql) and performance benefits. It has been developed by Mindgrep in the Himalayas from 2015. The code based test cases still need to be fully covered. It has been functionally tested well at the Dalai Lama archive for which the project was originally initiated. Each relevent file in .deep has some test cases written at bottom of it.
 
+NOTE: This documenation is not complete yet. Please stay tuned. We are working actively on it. Tutorial, documentation, setup and overview pages Will be up soon. 
 
 Installation
 ==============
