@@ -1,7 +1,7 @@
 ElasticGraph
 =============
 
-ElasticGraph extends ElasticSearch, to provide a Graph search and analytics, among other benefits like multi lingual storage, declarative data dependency management across related entities and performance benefits. It is fully open source and has been developed by Mindgrep in the Himalayas, between winter 2015 to summer 2017. The code based test cases still need to be fully covered. It has been functionally tested well at the Dalai Lama archive for which the project was originally initiated.
+ElasticGraph extends ElasticSearch to provide Graph search. Graph analytics, relationship management, joins, multi lingual storage, declarative data dependency management, English like Elastic SQL (Esql) and performance benefits. It has been developed by Mindgrep in the Himalayas from 2015. The code based test cases still need to be fully covered. It has been functionally tested well at the Dalai Lama archive for which the project was originally initiated. Each relevent file in .deep has some test cases written at bottom of it.
 
 
 Installation
@@ -15,14 +15,15 @@ Setup
 =======
 
 Download default config (https://github.com/awesomepankaj/elasitc-graph-config).
+Since ElasticGraph functionality is configuration driven, please read and understand the configuration well
 
 ```
+//Next two lines replace your require('elasticsearch') and new elasticsearch.client(config) calls
 var elasticgraph = require('elasticgraph')
 var es = new elasticgraph(config)
-//These two lines replace your require('elasticsearch') and new elasticsearch.client(config) calls
 ```
 
-From here on, you can use the elasticgraph 'es' client instance, as you would have used elasticsearch module in your code. Elasticgraph is first a wrapper around Elasticsearch module and, it provides some added features on top. For all elasticsearch module supported methods, it will simply delegate the calls to embedded elasticsearch module. If you are already using elasticsearch, you will see no change anywhere, whether in code or in es requests form/flow. Once you start using any elasticgraph specific features (mentioned below), then elasticgraph will come into play.
+From here on, you can use the elasticgraph 'es' client instance, as you would have used elasticsearch module in your code. Elasticgraph client is a superset of default ElasticSearch client in NodeJS. For all elasticsearch module supported methods, it will simply delegate the calls to embedded elasticsearch module. If you are already using elasticsearch, you will see no change anywhere, whether in code or in es requests form/flow. Once you start using any elasticgraph specific features (mentioned below), then elasticgraph will come into play.
 
 ElasticGraph methods
 ---------------------
@@ -48,7 +49,7 @@ var es = new elasticgraph(config)
  * @param {String} _type
  * @param {String} _id
  * @param {String} langs - Optional
- * @param {String} joins - Optional
+ * @param {String} joins - Either A.) name of the join file stored in {config_path}/joins/{fileName} or B.) JSON formatted join 
  */
 
 es.deep.get({
