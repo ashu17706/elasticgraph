@@ -2,7 +2,7 @@
 
 ElasticSearch Xtended.
 
-[Soon to be fully documented and released as an npm and REST server]
+Note: The API and configuration setup are not entirely present in this document yet. Also the formatting needs to be improved. This is work in progress. The  npm module will be released soon. For now you can pull and run from the master. The relevant API examples and documentation is in the code lib/deep folder. Should be able to make a fully detailed and nice tutorial with demo video by 10th of June. Ping us if you would like to use this npm. Follow it if you wish to have updates. This has been built as a byproduct of creating a database for the archive management of His Holiness the 14th DalaiLama.
 
 ElasticSearch (ES) is an excellent search and analytics engine. It is designed to scale with big data and heavy load. You can read more about it [here](https://www.elastic.co). 
 
