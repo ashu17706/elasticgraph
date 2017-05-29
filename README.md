@@ -2,11 +2,13 @@
 
 ElasticSearch Xtended.
 
-Note: The API and configuration setup are not entirely present in this document yet. Also the formatting needs to be improved. This is work in progress. The  npm module will be released soon. For now you can pull and run from the master. The relevant API examples and documentation is in the code lib/deep folder. Should be able to make a fully detailed and nice tutorial with demo video by 10th of June. Ping us if you would like to use this npm. Follow it if you wish to have updates. This has been built as a byproduct of creating a database for the archive management of His Holiness the 14th DalaiLama.
+Note: The API and configuration setup are not entirely present in this document yet. Also the formatting needs to be improved. The npm module will be released soon. For now you can pull the master branch. The relevant API examples and documentation is in the code lib/deep folder. Should be able to make a fully detailed and nice tutorial with demo video by 10th of June. This has been built as a byproduct of creating a database for the archive management of His Holiness the 14th DalaiLama. Do follow it if you wish to have updates. 
 
-ElasticSearch (ES) is an excellent search and analytics engine. It is designed to scale with big data and heavy load. You can read more about it [here](https://www.elastic.co). 
+~~~~~~~~~~~~~~~~~~~~~
 
-Using ElasticGraph one can configure and run ElasticSearch as a highly scalable relational datastore, optimized for storing and querying large graphs with billions of vertices and edges distributed across a multi-machine cluster. ElasticGraph can support thousands of concurrent users, and complex search and analytic graph queries. 
+ElasticSearch (ES) is an excellent *search and analytics engine*. It can support upto thousands of concurrent users and tera bytes of data, distributed across many machines. You can read more about it [here](https://www.elastic.co). 
+
+Using ElasticGraph one can configure and run ElasticSearch with additional capabilities, as a highly scalable *relational datastore, optimized for storing and querying large informational graphs in greater depth and complexity. ElasticGraph can support thousands of concurrent users, and complex search and analytic graph queries.* 
 
  Here are the features of ElasticGraph
 
@@ -64,7 +66,10 @@ Using ElasticGraph one can configure and run ElasticSearch as a highly scalable 
 
         * Developers can use this feature via EG’s npm module, to keep alive and share a cache object as long as they want.
 
+
 Graph is part of the name, because here we see every dataset as a Graph of different types of nodes (entities) connected through different relationships. You can read more about Graph databases [here](https://en.wikipedia.org/wiki/Graph_database). While this being said, EG does not strive to be a full functional Graph database. It is, so far, a Graph way of extending to ElasticSearch. It does not support transactions or guarantee ACID behavior. It is designed to give great performance for *write less and read/search/analyse more* scenarios, under heavy query load over big data.
+
+
 
 ## **Packaging**
 
