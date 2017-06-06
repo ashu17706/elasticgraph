@@ -4,8 +4,6 @@
 
 Note: The API and configuration setup are not entirely present in this document yet. Also the formatting needs to be improved. The npm module will be released soon. For now you can pull the master branch. The relevant API examples and documentation is in the code lib/deep folder. Should be able to make a fully detailed and nice tutorial with demo video by 10th of June.
 
-~~~~~~~~~~~~~~~~~~~~~
-
 ElasticSearch (ES) is an excellent *search and analytics engine*. It can support upto thousands of concurrent users and tera bytes of data, distributed across many machines. You can read more about it [here](https://www.elastic.co). 
 
 Using ElasticGraph one can configure and run ElasticSearch with additional capabilities, as a highly scalable *relational datastore, optimized for storing and querying large informational graphs in greater depth and complexity. ElasticGraph can support thousands of concurrent users, and complex search and analytic graph queries.* 
@@ -243,7 +241,7 @@ Here are some scenarios in which the automatic denormalization will trigger in o
 
 * When the event is unlinked from a speaker, the speaker’s id, name etc will get removed from the event entity
 
-####The Butterfly effect
+#### The Butterfly effect
 
 As you just saw, any update can potentially create a ripple update across entire Graph, for maintaining correct data state as per the denormalisation and also the data dependency rules like union and copy (more on the latter below).
 
@@ -298,43 +296,40 @@ Union from operation can be used to compute and store distinct values, whether r
 
 This is useful for one to many or many to many relationships. Please look at the following examples to understand.
 
-========
-
-[conference]
-
-speakers = '+talks.speaker' #As soon as a talk is linked to a conferece, or an already linked talk gets linked to a speaker, *the talk’s speaker is also linked to the conference as one of its speakers, if not already linked before*. Vice versa happens if the talk is unlinked to its speaker, or the talk is removed from the conference
-
-topics = '+talks.topics' #As soon as a talk is linked to an conference, or a topic is set to an already linked talk, the talk’s topic is also added to the conference as one of its topics, if not already there. Vice versa happens if the talk is unliked to the conference, or the topic is removed from the talk.
-
-[‘person’]
-
-grandChildren = +‘children.children’ #Whenever a person’s child gets a new child, the new child gets added to the person’s grandchildren
-
-[‘folder’]
-
-fileTypes = ‘+childFolders.fileTypes + childFiles.type’ #Calculate union of all file types existing in the entire folder tree (recursively). Anytime, any file gets added to any child folder in this tree, the type of that file gets unioned with the list of fileTypes of that child folder, and all its parent folders up in the hierarchy.
-
-========
-
-You can specify any rules as per the dependencies in your data model.
-
-* **Copy**
-
-> Settings are in configFolder/schema/union.toml
-
-Currently the copy functionality is achieved from within the union configuration.
-
-This is effective for many to one or one to one relations. For ex.
-
-========
-
-[person]
-
-child = "+wife.child +husband.child" #This will ensure copy of child between husband and wife, whenever child is added to any one of the person entities
-
-[file]
-
-permissions = "+folder.permissions" #Whenever a folder’s permissions are updated the underlying files’ permissions are updated automatically. You can still manually override them, without affecting the folder. But whenever the folder’s permissions are updated again, the file’s permissions will get overwritten.
+    [conference]
+    
+    speakers = '+talks.speaker' #As soon as a talk is linked to a conferece, or an already linked talk gets linked to a speaker, *the talk’s speaker is also linked to the conference as one of its speakers, if not already linked before*. Vice versa happens if the talk is unlinked to its speaker, or the talk is removed from the conference
+    
+    topics = '+talks.topics' #As soon as a talk is linked to an conference, or a topic is set to an already linked talk, the talk’s topic is also added to the conference as one of its topics, if not already there. Vice versa happens if the talk is unliked to the conference, or the topic is removed from the talk.
+    
+    [‘person’]
+    
+    grandChildren = +‘children.children’ #Whenever a person’s child gets a new child, the new child gets added to the person’s grandchildren
+    
+    [‘folder’]
+    
+    fileTypes = ‘+childFolders.fileTypes + childFiles.type’ #Calculate union of all file types existing in the entire folder tree (recursively). Anytime, any file gets added to any child folder in this tree, the type of that file gets unioned with the list of fileTypes of that child folder, and all its parent folders up in the hierarchy.
+    
+    
+    You can specify any rules as per the dependencies in your data model.
+    
+    * **Copy**
+    
+    > Settings are in configFolder/schema/union.toml
+    
+    Currently the copy functionality is achieved from within the union configuration.
+    
+    This is effective for many to one or one to one relations. For ex.
+    
+    ========
+    
+    [person]
+    
+    child = "+wife.child +husband.child" #This will ensure copy of child between husband and wife, whenever child is added to any one of the person entities
+    
+    [file]
+    
+    permissions = "+folder.permissions" #Whenever a folder’s permissions are updated the underlying files’ permissions are updated automatically. You can still manually override them, without affecting the folder. But whenever the folder’s permissions are updated again, the file’s permissions will get overwritten.
 
 ## **Read time joins**
 
@@ -522,7 +517,7 @@ When using EG for denormalisation and dependency management, one has to be OK wi
 
 For now you can see the API by going through the lib/search,get,create,update,link.js files and check the documentation there. Each also has some test case written at the bottom. A full API doc shall be made soon.
 
-##**Summing it up**
+## **Summing it up**
 This project started with the .collect() feature sometime in 2015, from there it has evolved to include the deep API, denormalization, esql and other features. It is still in its nascent stage in terms of adoption, documentation and test coverage. 
 *Trials, contribution, feedback and suggestions are welcome.*
 
